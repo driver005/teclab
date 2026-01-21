@@ -20,10 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: teclab
 
-    env:
-      REMOTE_DIR: "/home/sites/site100030858/web/www.sfz-tuebingen.org/"
-
-
     steps:
       - name: 🧾 Checkout code
         uses: actions/checkout@v4
@@ -48,11 +44,11 @@ jobs:
       - name: 🧹 Clear target directory on Manitu
         run: |
           echo "==> Cleaning $REMOTE_DIR..."
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "rm -rf $REMOTE_DIR*"
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "rm -rf ${{ env.REMOTE_DIR }}*"
 
       - name: 📤 Deploy to Manitu via SCP
         run: |
           echo "==> Copying files to $REMOTE_DIR..."
-          rsync -avz ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:$REMOTE_DIR
+          rsync -avz ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ env.REMOTE_DIR }}
 
 
