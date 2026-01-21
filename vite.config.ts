@@ -3,9 +3,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import viteCompression from 'vite-plugin-compression';
 import Sitemap from 'vite-plugin-sitemap';
-import { r3f } from '@react-three/editor/vite';
 import { env } from 'process';
-//r3f()
 
 const dynamicRoutes = ['/', '/projects', '/printer'];
 

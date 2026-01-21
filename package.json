@@ -40,7 +40,6 @@
     "predeploy": "yarn run build"
   },
   "devDependencies": {
-    "@react-three/editor": "^0.0.16",
     "@vitejs/plugin-react": "5.1.2",
     "@vitejs/plugin-react-swc": "^4.2.2",
     "i18next-cli": "^1.30.4",
@@ -58,6 +57,5 @@
   ],
   "engines": {
     "node": "22.x"
-  },
-  "packageManager": "yarn@3.6.2"
+  }
 }
