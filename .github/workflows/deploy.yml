@@ -44,11 +44,11 @@ jobs:
       - name: 🧹 Clear target directory on Manitu
         run: |
           echo "==> Cleaning $REMOTE_DIR..."
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "rm -rf ${{ env.REMOTE_DIR }}*"
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "rm -rf ${{ vars.REMOTE_DIR }}*"
 
       - name: 📤 Deploy to Manitu via SCP
         run: |
           echo "==> Copying files to $REMOTE_DIR..."
-          rsync -avz ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ env.REMOTE_DIR }}
+          rsync -avz ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ vars.REMOTE_DIR }}
 
 
